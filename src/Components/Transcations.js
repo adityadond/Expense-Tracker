@@ -25,6 +25,8 @@ function Transcations({ transactions , deleteTransaction }) {
                         return <Transaction transaction={transaction}  key={transaction.id} deleteTransaction={deleteTransaction} />
                     })
                 }
+
+                
             </List>
         </Box>
     )
