@@ -4,7 +4,7 @@ import Balance from "./Components/Balance";
 import ExpenseCard from "./Components/ExpenseCard";
 import NewTranscation from "./Components/NewTranscation";
 import Transcations from "./Components/Transcations";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const useStyles = makeStyles({
   header: {
@@ -44,6 +44,7 @@ function App() {
     console.log(transactions);
   };
 
+  useEffect(()=>{})
   const addTransaction = (transaction) => {
     console.log(transaction);
     setTransactions((transactions) => [transaction, ...transactions]);

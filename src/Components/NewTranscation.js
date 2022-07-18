@@ -31,15 +31,26 @@ function NewTranscation({addTransaction}) {
             amount:+amount
         }
         addTransaction(transaction);
+       
     }
+    const handleSubmit = e => {
+        console.log('handleSubmit ran');
+        e.preventDefault(); // 👈️ prevent page refresh
+    
+        // 👇️ clear all input values in the form
+        setText('');
+        setAmount('');
+      };
     return (
        <Box className={classes.container}>
            <Typography variant="h5">
                New Transaction
            </Typography>
-           <TextField label="Enter Expense" onChange={expenseHandler}/>
-           <TextField label="Total Amount" onChange={amountHandler}/>
-           <Button className={classes.button} variant="container" onClick={newTransaction}>Add new Transaction</Button>
+           <form onSubmit={handleSubmit}>
+           <TextField label="Enter Expense" value={text} onChange={expenseHandler}/>
+           <TextField label="Total Amount" value={amount} onChange={amountHandler}/>
+           <Button className={classes.button} type ="submit"  onClick={newTransaction}>Add new Transaction</Button>
+           </form>
        </Box>
     )
 }
